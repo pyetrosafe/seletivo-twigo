@@ -1,0 +1,23 @@
+<div class="px-3 py-5">
+  <%= link_to 'Novo Curso', new_course_path %>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @courses.each do |course| %>
+          <tr>
+            <td><%= course.id %></td>
+            <td><%= course.title %></td>
+            <td><a class="btn btn-sm btn-outline-secondary" href="<%= course_path(course) %>"> <i class="bi bi-pencil-square"></i> </a></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>

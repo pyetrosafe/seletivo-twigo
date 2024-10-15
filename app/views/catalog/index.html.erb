@@ -1,0 +1,32 @@
+<div class="catalog py-5 bg-body-tertiary">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+      <% @courses.each do |course| %>
+        <div class="col">
+          <a href="<%= catalog_path(course) %>" class="text-decoration-none">
+          <div class="card shadow-sm h-100">
+            <div class="card-header p-0 border-0 bg-secondary-subtle">
+              <img src="<%= asset_path course.thumbnail %>" width="100%" height="225" class="card-img-top object-fit-fill" alt="<%= course.title %>" />
+            </div>
+            <div class="card-body" style="padding-top: 0.75rem; padding-bottom: 0.5rem;">
+              <h5 class="card-title">
+                <%= course.title %>
+              </h5>
+              <p class="card-text">
+                <small> <%= course.description.truncate(100) %> </small>
+              </p>
+              <p class="card-text">
+                <small class="text-body-secondary text-truncate text-decoration-underline link-offset-2 link-underline-secondary link-underline-opacity-25"><%= course.author %></small>
+              </p>
+            </div>
+            <div class="card-footer bg-body border-0 text-center">
+              <p class="card-text text-body-secondary"><%= course.price %></p>
+            </div>
+          </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

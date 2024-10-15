@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <title><%= content_for(:title) || "Seletivo Twigo" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="h-100">
+
+    <header class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <nav class="container-sm flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+        <a class="navbar-brand col-lg-3 me-0" href="<%= root_path %>">Seletivo Twigo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+          <ul class="navbar-nav justify-content-lg-center col-lg-8">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="<%= root_path %>">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="<%= courses_path %>">Cursos</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li> -->
+          </ul>
+          <div class="d-lg-flex justify-content-lg-end col-lg-4">
+            <% if !current_user %>
+              <a href="<%= new_user_path %>" class="btn btn-outline-primary me-2">Registrar</a>
+              <a href="<%= sign_in_path %>" class="btn btn-outline-primary me-2">Entrar</a>
+            <% else %>
+              <a href="<%= sign_out_path %>" class="btn btn-outline-primary me-2">Sair</a>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+      </header>
+
+    <main class="pt-4">
+      <div class="container bg-body-tertiary">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+            <%= value %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </main>
+
+  </body>
+</html>

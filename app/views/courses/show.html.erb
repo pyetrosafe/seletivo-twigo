@@ -1,0 +1,17 @@
+<div class="my-2 d-flex justify-content-center">
+  <h3>Visualizar - Curso</h3>
+</div>
+
+<h4><%= @course.title %></h4>
+
+<p><%= @course.description %></p>
+
+<ul>
+  <li><%= link_to 'Edit', edit_course_path(@course) %></li>
+  <li>
+    <%= link_to 'Destroy', course_path(@course), data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Are you sure?'
+    } %>
+  </li>
+</ul>

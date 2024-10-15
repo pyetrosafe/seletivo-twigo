@@ -1,0 +1,93 @@
+<%= form_with model: course do |form| %>
+  <%= render 'shared/errors', object: course %>
+
+  <div class="row g-3">
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :title, class: 'form-label' %>
+        <%= form.text_field :title, class: 'form-control' %>
+        <% course.errors.full_messages_for(:title).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :description, class: 'form-label' %>
+        <%= form.text_area :description, class: 'form-control' %>
+        <% course.errors.full_messages_for(:description).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :author, class: 'form-label' %>
+        <%= form.text_field :author, class: 'form-control' %>
+        <% course.errors.full_messages_for(:author).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :category, class: 'form-label' %>
+        <%= form.text_field :category, class: 'form-control' %>
+        <% course.errors.full_messages_for(:category).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :price, class: 'form-label' %>
+        <%= form.text_field :price, class: 'form-control' %>
+        <% course.errors.full_messages_for(:price).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :language, class: 'form-label' %>
+        <%= form.text_field :language, class: 'form-control' %>
+        <% course.errors.full_messages_for(:language).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :video_url, class: 'form-label' %>
+        <%= form.text_field :video_url, class: 'form-control' %>
+        <% course.errors.full_messages_for(:video_url).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+        <%= form.label :end_date, class: 'form-label' %>
+        <%= form.date_field :end_date, class: 'form-control' %>
+        <% course.errors.full_messages_for(:end_date).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
+      <%= form.submit "Enviar", class: 'btn btn-primary btn d-block mx-auto' %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
