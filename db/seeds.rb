@@ -53,7 +53,7 @@ Course.create!(
   video_url: '',
   video_time: 399,
   thumbnail: 'course_3.jpg',
-  end_date: Time.now.advance(minutes: 120)
+  end_date: Time.now.advance(days: 1)
 )
 
 Course.create!(
