@@ -75,6 +75,16 @@
 
     <div class="col-12">
       <div class="col-md-6 mx-auto">
+        <%= form.label :thumbnail, class: 'form-label' %>
+        <%= form.text_field :thumbnail, class: 'form-control' %>
+        <% course.errors.full_messages_for(:thumbnail).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="col-md-6 mx-auto">
         <%= form.label :end_date, class: 'form-label' %>
         <%= form.date_field :end_date, class: 'form-control' %>
         <% course.errors.full_messages_for(:end_date).each do |message| %>
@@ -84,8 +94,9 @@
     </div>
 
     <div class="col-12">
-      <div class="col-md-6 mx-auto">
-      <%= form.submit "Enviar", class: 'btn btn-primary btn d-block mx-auto' %>
+      <div class="col-md-6 mx-auto d-flex justify-content-center column-gap-3">
+        <%= form.submit "Enviar", class: 'btn btn-primary btn' %>
+        <%= link_to "Cancelar", :back , class: 'btn btn-outline-secondary' %>
       </div>
     </div>
 

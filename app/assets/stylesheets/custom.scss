@@ -1,0 +1,20 @@
+@import 'bootstrap';
+
+@mixin text-justified {
+    text-align: justify;
+}
+
+.text-justified {
+    @include text-justified;
+}
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys(map-remove($grid-breakpoints, "xs")) {
+
+  // Generate media query if needed
+  @include media-breakpoint-up($breakpoint) {
+    .text-#{$breakpoint}-justified {
+        @include text-justified
+    }
+  }
+}

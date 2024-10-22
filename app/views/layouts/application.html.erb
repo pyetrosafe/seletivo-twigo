@@ -4,6 +4,7 @@
     <title><%= content_for(:title) || "Seletivo Twigo" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="turbo-prefetch" content="false">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -54,7 +55,7 @@
       </header>
 
     <main class="pt-4">
-      <div class="container bg-body-tertiary">
+      <div class="container bg-body-tertiary py-3">
         <% flash.each do |key, value| %>
           <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
             <%= value %>

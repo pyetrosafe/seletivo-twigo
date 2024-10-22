@@ -30,7 +30,7 @@ class CoursesController < ApplicationController
     @course = course_find
 
     if @course.update(course_params)
-      redirect_to @course
+      redirect_to action: 'index'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -46,7 +46,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :category, :author, :price, :language)
+    params.require(:course).permit(:title, :description, :category, :author, :price, :video_url, :thumbnail, :language)
   end
 
   def course_find

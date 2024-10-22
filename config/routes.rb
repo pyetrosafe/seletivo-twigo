@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'user_sessions#new', as: :sign_in
 
   # Catalog routes
-  resources :catalog
+  resources :catalog, only: [:index, :show]
 
   # Courses routes
   resources :courses

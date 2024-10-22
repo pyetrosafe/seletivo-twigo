@@ -24,7 +24,7 @@ Course.create!(
   price: 29.90,
   category: 'Matemática',
   language: 'Português',
-  video_url: 'course_1.jpg',
+  video_url: '',
   video_time: 485,
   thumbnail: 'course_1.jpg',
   end_date: Time.now.next_month
