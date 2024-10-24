@@ -2,11 +2,13 @@ require_relative "boot"
 
 require "rails/all"
 
+require_relative '../app/middlewares/rules_permissions'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module SeletivoTwigo2
+module OnlineCourses
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
@@ -31,5 +33,7 @@ module SeletivoTwigo2
     config.active_record.default_timezone = :local
 
     config.assets.compile = true
+
+    config.middleware.use OnlineCourses::RulesPermissions
   end
 end

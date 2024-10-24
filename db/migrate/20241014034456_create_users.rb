@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.index     :email, unique: true
 
       # Authlogic::ActsAsAuthentic::Login
-      t.string    :login
+      # t.string    :login
 
       # Authlogic::ActsAsAuthentic::Password
       t.string    :crypted_password
@@ -37,6 +37,9 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.boolean   :active, default: false
       t.boolean   :approved, default: false
       t.boolean   :confirmed, default: false
+
+      # Custom for role permissions
+      t.boolean   :admin, default: false
 
       t.timestamps    end
   end
